@@ -1,6 +1,6 @@
-var ball = document.querySelector('.ball');
-var garden = document.querySelector('.garden');
-var output = document.querySelector('.output');
+var ball = document.getElementsByClassName('ball');
+var garden = document.getElementsByClassName('garden');
+var output = document.getElementsByClassName('output');
 
 var maxX = garden.clientWidth - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
