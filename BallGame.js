@@ -9,10 +9,10 @@ function deviceOrientationListener(event) {
     var positionX = ((x / 90) * maxX) + (maxX / 2);
     var positionY = ((y / 90) * maxY) + (maxY / 2);
 
-    if (positionX > 0 && positionX < maxX) {
+    if ((positionX > 0) && (positionX < maxX)) {
         ball.style.top = positionX + "px";
     }
-    if (positionY > 0 && positionY < maxY) {
+    if ((positionY > 0) && (positionY < maxY)) {
         ball.style.left = positionY + "px";
     }
 
