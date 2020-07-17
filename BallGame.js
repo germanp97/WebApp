@@ -17,20 +17,7 @@ function deviceOrientationListener(event) {
     var x = event.beta;
     var y = event.gamma;
 
-    if (x > 90) {
-        x = 90
-    }
-
-    if (x < -90) {
-        x = -90
-    }
-
-    x += 90;
-    y += 90;
-
-    ball.style.top = (500 * y / 180 - 10) + "px";
     document.getElementById("x").innerText = x;
-    ball.style.left = (500 * x / 180 - 10) + "px";
     document.getElementById("y").innerText = y;
 }
 
