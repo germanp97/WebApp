@@ -24,9 +24,9 @@ function deviceOrientationListener(event) {
     y += 90;
 
     ball.style.top = (500 * y / 180 - 10) + "px";
-    document.getElementById("x").innerText = x;
+    document.getElementById("x").innerText = (500 * y / 180 - 10).toString();
     ball.style.left = (500 * x / 180 - 10) + "px";
-    document.getElementById("y").innerText = y;
+    document.getElementById("y").innerText = (500 * x / 180 - 10).toString();
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
