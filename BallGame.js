@@ -14,6 +14,7 @@ function deviceOrientationListener(event) {
     // document.getElementById("alpha").innerText = a;
     // document.getElementById("beta").innerText = b;
     // document.getElementById("gamma").innerText = c;
+    console.log(maxX, maxY);
 
     var x = event.beta;
     var y = event.gamma;
@@ -30,9 +31,9 @@ function deviceOrientationListener(event) {
     y += 90;
 
     ball.style.top = (maxY * y / 180 - 10) + "px";
-    document.getElementById("x").innerText = (maxY * y / 180 - 10).toString();
+    document.getElementById("x").innerText = x;
     ball.style.left = (maxX * x / 180 - 10) + "px";
-    document.getElementById("y").innerText = (maxX * x / 180 - 10).toString();
+    document.getElementById("y").innerText = y;
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
