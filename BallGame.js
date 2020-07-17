@@ -18,9 +18,6 @@ function deviceOrientationListener(event) {
     var x = event.beta;
     var y = event.gamma;
 
-    output.innerHTML = "beta : " + x + "\n";
-    output.innerHTML += "gamma: " + y + "\n";
-
     if (x > 90) {
         x = 90
     }
@@ -33,7 +30,9 @@ function deviceOrientationListener(event) {
     y += 90;
 
     ball.style.top = (maxY * y / 180 - 10) + "px";
+    document.getElementById("x").innerText = (maxY * y / 180 - 10).toString();
     ball.style.left = (maxX * x / 180 - 10) + "px";
+    document.getElementById("x").innerText = (maxX * x / 180 - 10).toString();
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
