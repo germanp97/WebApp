@@ -12,6 +12,7 @@ function deviceOrientationListener(event) {
     // document.getElementById("alpha").innerText = a;
     // document.getElementById("beta").innerText = b;
     // document.getElementById("gamma").innerText = c;
+    console.log(event);
 
     var x = event.beta;
     var y = event.gamma;
