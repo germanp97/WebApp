@@ -32,7 +32,7 @@ function deviceOrientationListener(event) {
     ball.style.top = (maxY * y / 180 - 10) + "px";
     document.getElementById("x").innerText = (maxY * y / 180 - 10).toString();
     ball.style.left = (maxX * x / 180 - 10) + "px";
-    document.getElementById("x").innerText = (maxX * x / 180 - 10).toString();
+    document.getElementById("y").innerText = (maxX * x / 180 - 10).toString();
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
