@@ -19,8 +19,8 @@ function deviceOrientationListener(event) {
     x += 90;
     y += 90;
 
-    ball.style.top = (maxY * y / 180 - 10) + "px";
-    ball.style.left = (maxX * x / 180 - 10) + "px";
+    ball.style.top = (maxY * y * 1.2 / 180 - 10) + "px";
+    ball.style.left = (maxX * x * 1.2 / 180 - 10) + "px";
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
