@@ -5,5 +5,11 @@ if (window.DeviceOrientationEvent) {
 }
 
 function deviceOrientationListener(event) {
-    document.getElementById("headline").innerText = "works"
+    var a = event.alpha;
+    var b = event.beta;
+    var c = event.gamma;
+    document.getElementById("alpha").innerText = a;
+    document.getElementById("beta").innerText = b;
+    document.getElementById("gamma").innerText = c;
+
 }
