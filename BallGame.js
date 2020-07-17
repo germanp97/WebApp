@@ -1,8 +1,4 @@
-if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", deviceOrientationListener);
-} else {
-    document.getElementById("headline").innerText = "test"
-}
+
 var garden = document.getElementById("garden");
 var ball = document.getElementById("ball");
 var output = document.getElementById("output");
@@ -39,3 +35,5 @@ function deviceOrientationListener(event) {
     ball.style.top = (maxY * y / 180 - 10) + "px";
     ball.style.left = (maxX * x / 180 - 10) + "px";
 }
+
+window.addEventListener('deviceorientation', deviceOrientationListener);
