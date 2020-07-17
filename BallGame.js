@@ -5,7 +5,7 @@ function deviceOrientationListener(event) {
     var maxX = garden.clientWidth - ball.clientWidth;
     var maxY = garden.clientHeight - ball.clientHeight;
 
-    var x = event.alpha;
+    var x = event.gamma;
     var y = event.beta;
 
     if (x > 90) {
