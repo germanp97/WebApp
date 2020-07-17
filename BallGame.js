@@ -1,8 +1,6 @@
-
-var garden = document.getElementById("garden");
 var ball = document.getElementById("ball");
-var output = document.getElementById("output");
-
+var initialX = null;
+var initialY = null;
 
 
 function deviceOrientationListener(event) {
@@ -14,11 +12,22 @@ function deviceOrientationListener(event) {
     // document.getElementById("gamma").innerText = c;
     console.log(event);
 
-    var x = event.beta;
-    var y = event.gamma;
+    var x = event.beta ? event.beta : event.y * 90;
+    var y = event.gamma ? event.gamma : event.x * 90;
 
-    document.getElementById("x").innerText = x;
-    document.getElementById("y").innerText = y;
+    if (!initialX && !initialY) {
+
+        initialX = x;
+        initialY = y;
+
+    } else {
+
+        var positionX = initialX - x;
+        var positionY = initialY - y;
+
+        ball.style.top = (90 + positionX * 5) + 'px';
+        ball.style.left = (90 + positionY * 5) + 'px';
+    }
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
