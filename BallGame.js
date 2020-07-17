@@ -1,7 +1,4 @@
 var ball = document.getElementById("ball");
-var initialX = null;
-var initialY = null;
-
 
 function deviceOrientationListener(event) {
     // var a = event.alpha;
@@ -12,22 +9,24 @@ function deviceOrientationListener(event) {
     // document.getElementById("gamma").innerText = c;
     console.log(event);
 
-    var x = event.beta ? event.beta : event.y * 90;
-    var y = event.gamma ? event.gamma : event.x * 90;
+    var x = Math.round(event.beta);
+    var y = Math.round(event.gamma);
 
-    if (!initialX && !initialY) {
-
-        initialX = x;
-        initialY = y;
-
-    } else {
-
-        var positionX = initialX - x;
-        var positionY = initialY - y;
-
-        ball.style.top = (90 + positionX * 5) + 'px';
-        ball.style.left = (90 + positionY * 5) + 'px';
+    if (x > 90) {
+        x = 90
     }
+
+    if (x < -90) {
+        x = -90
+    }
+
+    x += 90;
+    y += 90;
+
+    ball.style.top = (500 * y / 180 - 10) + "px";
+    document.getElementById("x").innerText = x;
+    ball.style.left = (500 * x / 180 - 10) + "px";
+    document.getElementById("y").innerText = y;
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
