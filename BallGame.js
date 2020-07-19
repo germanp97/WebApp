@@ -1,24 +1,17 @@
 function deviceOrientationListener(event) {
-    var ball = document.getElementById("ball");
-    var garden = document.getElementById("garden");
-
-    var maxX = garden.clientWidth - ball.clientWidth;
-    var maxY = garden.clientHeight - ball.clientHeight;
-    var x = event.gamma;
-    var y = event.beta;
-
-    if (x > 90) {
-        x = 90
+    const bar = document.getElementById('bar');
+    const maxX = screen.width;
+    const boundary = maxX - 64;
+    const gammaAxis = event.gamma;
+    const position = ((gammaAxis / 90) * maxX) + (maxX / 2)
+    if (position > 0 && (position) < boundary) {
+        bar.style.left = position + 'px';
     }
-    if (x < -90) {
-        x = -90
-    }
-
-    x += 90;
-    y += 90;
-
-    ball.style.top = (maxY * y / 180 - 10) + "px";
-    ball.style.left = (maxX * x / 180 - 10) + "px";
 }
 
 window.addEventListener('deviceorientation', deviceOrientationListener);
+
+function startGame() {
+    document.getElementById('startButton').style.display = 'none';
+    console.log('started')
+}
