@@ -1,13 +1,14 @@
-var counter;
-var intervalCounter;
-var intervalBall;
-var maxY = screen.height;
-var maxX = screen.width;
-var dx;
-var dy;
-var x;
-var y;
-var score;
+const maxY = screen.height;
+const maxX = screen.width;
+
+let counter;
+let intervalCounter;
+let intervalBall;
+let dx;
+let dy;
+let x;
+let y;
+let score;
 
 function startGame() {
     score = 0;
@@ -27,13 +28,13 @@ function timeIt() {
     document.getElementById("counter").style.display = "inline";
     if (counter === 0) {
         clearInterval(intervalCounter);
-        test();
+        start();
     }
 }
 
-function test() {
-    var randomNumber = Math.random()
-    var randomX = Math.floor( randomNumber * Math.floor(maxX));
+function start() {
+    let randomNumber = Math.random()
+    let randomX = Math.floor( randomNumber * Math.floor(maxX));
     while(randomX === 0) {
         randomNumber = Math.random();
         randomX = randomNumber * maxX;
@@ -50,7 +51,7 @@ function test() {
 }
 
 function drawBall() {
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("ball");
     var context = canvas.getContext('2d');
     var bar = document.getElementById("bar");
     var rect = bar.getBoundingClientRect();
@@ -74,7 +75,6 @@ function drawBall() {
         dy=-dy;
         score++;
         if(score % 3 === 0 && score !== 0) {
-            console.log("OH")
             dx--;
             dy--;
         }
@@ -87,7 +87,7 @@ function drawBall() {
 }
 
 function reset() {
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("ball");
     var context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("bar").style.display = "none";
@@ -101,7 +101,7 @@ function reset() {
 function handleOrientation(event) {
     var bar = document.getElementById("bar");
     var maxX = screen.width
-    var boundry = maxX - 64;
+    var boundry = maxX - 120;
     var rotation = event.gamma;
     var position = ((rotation / 90) * maxX) + (maxX / 2)
     if(position > 0 && (position) < boundry) {
