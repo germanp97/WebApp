@@ -24,7 +24,7 @@ function timeIt() {
     counter--;
     document.getElementById("counter").innerHTML = counter;
     document.getElementById("counter").style.display = "inline";
-    if (counter == 0) {
+    if (counter === 0) {
         clearInterval(intervalCounter);
         test();
     }
@@ -33,7 +33,7 @@ function timeIt() {
 function test() {
     var randomNumber = Math.random()
     var randomX = Math.floor( randomNumber * Math.floor(maxX));
-    while(randomX == 0) {
+    while(randomX === 0) {
         randomNumber = Math.random();
         randomX = randomNumber * maxX;
     }
@@ -44,8 +44,6 @@ function test() {
     var canvas = document.getElementById("gameCanvas");
     canvas.width = maxX;
     canvas.height = maxY;
-    var canvas = document.getElementById("gameCanvas");
-    var context = canvas.getContext('2d');
     x = randomX;
     intervalBall = setInterval(drawBall, 10);
 }
@@ -74,7 +72,7 @@ function drawBall() {
         dx=-dx
         dy=-dy;
         score++;
-        if(score % 3 == 0 && score != 0) {
+        if(score % 3 === 0 && score !== 0) {
             console.log("OH")
             dx--;
             dy--;
@@ -102,10 +100,8 @@ function reset() {
 function handleOrientation(event) {
     var bar = document.getElementById("bar");
     var maxX = screen.width
-    var maxY = screen.length
     var boundry = maxX - 64;
     var rotation = event.gamma;
-    var pixels = ((rotation / 90) * maxX)
     var position = ((rotation / 90) * maxX) + (maxX / 2)
     if(position > 0 && (position) < boundry) {
         bar.style.left = position + "px";
