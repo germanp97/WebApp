@@ -1,4 +1,45 @@
-#wrapper {
+#bar {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    width: 80px;
+    height: 10px;
+    background: black;
+    display: none;
+}
+
+#startGame {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    width: 150px;
+    length: 200px;
+    top: 45%;
+}
+
+#final-score {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    width: 300px;
+    top: 30%;
+    text-align: center;
+}
+
+#score {
+    display: none;
+    position: absolute;
+    font-weight: 600;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    bottom: 65%;
+    right: 40%;
+    font-size: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+.wrapper {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,11 +47,9 @@
     justify-content: center;
 }
 
-#bar {
+#counter {
     position: absolute;
-    bottom: 40px;
-    left: 50%;
-    width: 80px;
-    height: 10px;
-    background: red;
+    font-variant-numeric: tabular-nums;
+    font-size: 200px;
+    top: 15%;
 }
