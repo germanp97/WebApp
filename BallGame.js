@@ -1,8 +1,8 @@
 var counter;
 var intervalCounter;
 var intervalBall;
-var maxY = screen.height
-var maxX = screen.width
+var maxY = screen.height;
+var maxX = screen.width;
 var dx;
 var dy;
 var x;
