@@ -25,7 +25,7 @@ function startGame() {
     counter = 4;
     dy = 3;
     dx = 3
-    document.getElementById("startGame").style.display = "none";
+    document.getElementById("startButton").style.display = "none";
     document.getElementById("final-score").style.display = "none";
     intervalCounter = setInterval(timeIt, 1000);
 }
@@ -54,13 +54,12 @@ function test() {
     var canvas = document.getElementById("gameCanvas");
     canvas.width = maxX;
     canvas.height = maxY;
-    var context = canvas.getContext('2d');
     x = randomX;
     intervalBall = setInterval(drawBall, 10);
 }
 
 function drawBall() {
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("ball");
     var context = canvas.getContext('2d');
     var bar = document.getElementById("bar");
     var rect = bar.getBoundingClientRect();
@@ -98,13 +97,13 @@ function drawBall() {
 
 
 function reset() {
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("ball");
     var context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("bar").style.display = "none";
-    document.getElementById("startGame").style.display = "inline-block";
+    document.getElementById("startButton").style.display = "inline-block";
     document.getElementById("final-score").style.display = "inline";
-    document.getElementById("startGame").innerHTML = "Let's go Again!"
+    document.getElementById("startButton").innerHTML = "Let's go Again!"
     document.getElementById("final-score").innerHTML = "Your final score is: " + score
     document.getElementById("score").style.display = "none";
 }
