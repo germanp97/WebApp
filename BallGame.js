@@ -43,7 +43,7 @@ function start() {
     document.getElementById("counter").style.display = "none";
     document.getElementById("score").innerHTML = "Score: " + score;
     document.getElementById("score").style.display = "inline";
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("ball");
     canvas.width = maxX;
     canvas.height = maxY;
     x = randomX;
@@ -63,6 +63,7 @@ function drawBall() {
     context.beginPath();
     context.arc(x, y,10,0,Math.PI*2,true);
     context.closePath();
+    context.fillStyle = "red";
     context.fill();
     console.log(y);
     console.log()
@@ -101,7 +102,7 @@ function reset() {
 function handleOrientation(event) {
     var bar = document.getElementById("bar");
     var maxX = screen.width
-    var boundry = maxX - 120;
+    var boundry = maxX - 100;
     var rotation = event.gamma;
     var position = ((rotation / 90) * maxX) + (maxX / 2)
     if(position > 0 && (position) < boundry) {
