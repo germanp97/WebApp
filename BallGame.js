@@ -15,6 +15,7 @@ function startGame() {
     counter = 4;
     dy = 3;
     dx = 3
+    console.log(document.getElementById("startGame").style);
     document.getElementById("startGame").style.display = "none";
     document.getElementById("final-score").style.display = "none";
     intervalCounter = setInterval(timeIt, 1000);
