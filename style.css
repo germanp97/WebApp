@@ -17,6 +17,16 @@
     top: 45%;
 }
 
+#restartGame {
+    display: none;
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    width: 150px;
+    length: 200px;
+    top: 45%;
+}
+
 #final-score {
     position: absolute;
     font-family: 'Open Sans', sans-serif;

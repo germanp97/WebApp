@@ -198,8 +198,11 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
-                        alert("YOU WIN, CONGRATS!");
-                        clearInterval(interval); // Needed for Chrome to end game
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        document.getElementById("bar").style.display = "none";
+                        document.getElementById("restartGame").style.display = "inline-block";
+                        document.getElementById("final-score").style.display = "inline";
+                        document.getElementById("final-score").innerHTML = "You Won! Your final score is: " + score;
                     }
                 }
             }
@@ -265,8 +268,11 @@ function draw() {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         } else {
-            clearInterval(interval); // Needed for Chrome to end game
-            reset();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            document.getElementById("bar").style.display = "none";
+            document.getElementById("restartGame").style.display = "inline-block";
+            document.getElementById("final-score").style.display = "inline";
+            document.getElementById("final-score").innerHTML = "Game Over! Your final score is: " + score;
         }
     }
 
@@ -280,13 +286,9 @@ function draw() {
     y += dy;
 }
 
-function reset() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById("bar").style.display = "none";
-    document.getElementById("startGame").style.display = "inline-block";
-    document.getElementById("final-score").style.display = "inline";
-    document.getElementById("startGame").innerHTML = "Let's go Again!";
-    document.getElementById("final-score").innerHTML = "Game Over! \n Your final score is: " + score;
+function restart() {
+    document.location.reload();
+    clearInterval(interval);
 }
 
 window.addEventListener("deviceorientation", handleOrientation, true);
