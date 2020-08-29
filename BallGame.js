@@ -77,6 +77,8 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        clearInterval(interval);
                         document.getElementById("restartGame").style.display = "inline-block";
                         document.getElementById("final-score").innerHTML = "You Won! Your final score is: " + score;
                         document.getElementById("final-score").style.display = "inline";
@@ -145,6 +147,8 @@ function draw() {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            clearInterval(interval);
             document.getElementById("restartGame").style.display = "inline-block";
             document.getElementById("final-score").innerHTML = "Game Over! Your final score is: " + score;
             document.getElementById("final-score").style.display = "inline";
@@ -163,7 +167,6 @@ function draw() {
 
 function restart() {
     document.location.reload();
-    clearInterval(interval);
 }
 
 window.addEventListener("deviceorientation", handleOrientation, true);
