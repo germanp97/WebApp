@@ -72,9 +72,9 @@
 //     context.clearRect(0, 0, canvas.width, canvas.height);
 //     document.getElementById("bar").style.display = "none";
 //     document.getElementById("startGame").style.display = "inline-block";
-//     document.getElementById("description").style.display = "inline";
+//     document.getElementById("final-score").style.display = "inline";
 //     document.getElementById("startGame").innerHTML = "Let's go Again!"
-//     document.getElementById("description").innerHTML = "Your final score is: " + score
+//     document.getElementById("final-score").innerHTML = "Your final score is: " + score
 //     document.getElementById("score").style.display = "none";
 // }
 //
@@ -115,7 +115,7 @@ function startGame() {
     // dx = 3;
     console.log(document.getElementById("startGame").style);
     document.getElementById("startGame").style.display = "none";
-    document.getElementById("description").style.display = "none";
+    document.getElementById("final-score").style.display = "none";
     intervalCounter = setInterval(timeIt, 1000);
 }
 
@@ -132,8 +132,8 @@ function timeIt() {
 
 document.addEventListener('DOMContentLoaded', function () {
     canvas = document.getElementById("myCanvas");
-    canvas.width = screen.width - 70;
-    canvas.height = screen.height * 0.832;
+    canvas.width = screen.width;
+    canvas.height = screen.height * 0.8;
     ctx = canvas.getContext("2d");
     x = canvas.width / 2;
     y = canvas.height - 30;
