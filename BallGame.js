@@ -43,7 +43,7 @@ function timeIt() {
 
 document.addEventListener('DOMContentLoaded', function () {
     canvas = document.getElementById("myCanvas");
-    canvas.width = screen.width - 10;
+    canvas.width = screen.width - 15;
     canvas.height = screen.height * 0.8;
     ctx = canvas.getContext("2d");
     x = canvas.width / 2;
