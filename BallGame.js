@@ -1,26 +1,26 @@
-var canvas;
-var ctx;
-var x;
-var y;
-var paddleX;
-var ballRadius = 10;
-var dx = 2;
-var dy = -2;
-var paddleHeight = 10;
-var paddleWidth = 75;
-var rightPressed = false;
-var leftPressed = false;
-var brickRowCount = 6;
-var brickColumnCount = 3;
-var brickWidth = 45;
-var brickHeight = 20;
-var brickPadding = 7;
-var brickOffsetTop = 30;
-var brickOffsetLeft = 30;
-var score = 0;
-var counter;
-var intervalCounter;
-var interval;
+let canvas;
+let ctx;
+let x;
+let y;
+let paddleX;
+let ballRadius = 10;
+let dx = 2;
+let dy = -2;
+let paddleHeight = 10;
+let paddleWidth = 75;
+let rightPressed = false;
+let leftPressed = false;
+let brickRowCount = 6;
+let brickColumnCount = 3;
+let brickWidth = 45;
+let brickHeight = 20;
+let brickPadding = 7;
+let brickOffsetTop = 30;
+let brickOffsetLeft = 30;
+let score = 0;
+let counter;
+let intervalCounter;
+let interval;
 
 
 function startGame() {
@@ -51,26 +51,26 @@ document.addEventListener('DOMContentLoaded', function () {
     paddleX = (canvas.width - paddleWidth) / 2
 });
 
-var bricks = [];
-for (var c = 0; c < brickColumnCount; c++) {
+let bricks = [];
+for (let c = 0; c < brickColumnCount; c++) {
     bricks[c] = [];
-    for (var r = 0; r < brickRowCount; r++) {
+    for (let r = 0; r < brickRowCount; r++) {
         bricks[c][r] = {x: 0, y: 0, status: 1};
     }
 }
 
 function handleOrientation(event) {
-    var rotation = event.gamma;
-    var position = ((rotation / 90) * canvas.width) + (canvas.width / 2);
-    if(position > 0 && (position) < canvas.width) {
+    let rotation = event.gamma;
+    let position = ((rotation / 90) * canvas.width) + (canvas.width / 2);
+    if (position > 0 && (position) < canvas.width) {
         paddleX = position;
     }
 }
 
 function collisionDetection() {
-    for (var c = 0; c < brickColumnCount; c++) {
-        for (var r = 0; r < brickRowCount; r++) {
-            var b = bricks[c][r];
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            let b = bricks[c][r];
             if (b.status === 1) {
                 if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
                     dy = -dy;
@@ -104,11 +104,11 @@ function drawPaddle() {
 }
 
 function drawBricks() {
-    for (var c = 0; c < brickColumnCount; c++) {
-        for (var r = 0; r < brickRowCount; r++) {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
             if (bricks[c][r].status === 1) {
-                var brickX = (r * (brickWidth + brickPadding)) + brickOffsetLeft;
-                var brickY = (c * (brickHeight + brickPadding)) + brickOffsetTop;
+                let brickX = (r * (brickWidth + brickPadding)) + brickOffsetLeft;
+                let brickY = (c * (brickHeight + brickPadding)) + brickOffsetTop;
                 bricks[c][r].x = brickX;
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
