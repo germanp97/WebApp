@@ -43,7 +43,7 @@ function timeIt() {
 
 document.addEventListener('DOMContentLoaded', function () {
     canvas = document.getElementById("myCanvas");
-    canvas.width = screen.width;
+    canvas.width = screen.width - 20;
     canvas.height = screen.height * 0.8;
     ctx = canvas.getContext("2d");
     x = canvas.width / 2;
@@ -62,7 +62,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 function handleOrientation(event) {
     let rotation = event.gamma;
     let position = ((rotation / 90) * canvas.width) + (canvas.width / 2);
-    if (position > 0 && (position) < canvas.width) {
+    if ((position > 0) && (position < canvas.width)) {
         paddleX = position;
     }
 }
@@ -92,7 +92,7 @@ function collisionDetection() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#00c3dd";
+    ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
 }
@@ -100,7 +100,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#00c3dd";
+    ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
 }
@@ -115,7 +115,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#00c3dd";
+                ctx.fillStyle = "#0095DD";
                 ctx.fill();
                 ctx.closePath();
             }
