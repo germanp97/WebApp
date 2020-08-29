@@ -1,88 +1,3 @@
-// const maxY = screen.height;
-// const maxX = screen.width;
-//
-// let counter;
-// let intervalCounter;
-// let intervalBall;
-// let dx;
-// let dy;
-// let x;
-// let y;
-// let score;
-//
-//
-// function start() {
-//     let randomNumber = Math.random()
-//     let randomX = Math.floor( randomNumber * Math.floor(maxX));
-//     while(randomX === 0) {
-//         randomNumber = Math.random();
-//         randomX = randomNumber * maxX;
-//     }
-//     document.getElementById("bar").style.display = "inline";
-//     document.getElementById("counter").style.display = "none";
-//     document.getElementById("score").innerHTML = "Score: " + score;
-//     document.getElementById("score").style.display = "inline";
-//     var canvas = document.getElementById("ball");
-//     canvas.width = maxX;
-//     canvas.height = maxY;
-//     x = randomX;
-//     intervalBall = setInterval(drawBall, 10);
-// }
-//
-// function drawBall() {
-//     var canvas = document.getElementById("ball");
-//     var context = canvas.getContext('2d');
-//     var bar = document.getElementById("bar");
-//     var rect = bar.getBoundingClientRect();
-//     var right = rect.right;
-//     var left = rect.left;
-//     var top = rect.top;
-//     var bottom = rect.bottom;
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-//     context.beginPath();
-//     context.arc(x, y,10,0,Math.PI*2,true);
-//     context.closePath();
-//     context.fillStyle = "red";
-//     context.fill();
-//     console.log(y);
-//     console.log()
-//     if (y >= $(window).height()) {
-//         clearInterval(intervalBall);
-//         reset();
-//     }
-//     if(x <= right - 5 && x >= left - 5 && y >= top - 15 && y < bottom - 20) {
-//         dx=-dx
-//         dy=-dy;
-//         score++;
-//         if(score % 3 === 0 && score !== 0) {
-//             dx--;
-//             dy--;
-//         }
-//         document.getElementById("score").innerHTML = "Score: " + score;
-//     }
-//     y+=dy;
-//     x+=dx;
-//     if (x < 0 || x > maxX) dx=-dx
-//     if (y < 0 ) dy=-dy;
-// }
-//
-// function reset() {
-//     var canvas = document.getElementById("ball");
-//     var context = canvas.getContext('2d');
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-//     document.getElementById("bar").style.display = "none";
-//     document.getElementById("startGame").style.display = "inline-block";
-//     document.getElementById("final-score").style.display = "inline";
-//     document.getElementById("startGame").innerHTML = "Let's go Again!"
-//     document.getElementById("final-score").innerHTML = "Your final score is: " + score
-//     document.getElementById("score").style.display = "none";
-// }
-//
-//
-//
-
-// window.addEventListener("deviceorientation", handleOrientation, true);
-
 var canvas;
 var ctx;
 var x;
@@ -109,10 +24,7 @@ var interval;
 
 
 function startGame() {
-    // y = 100;
     counter = 4;
-    // dy = 3;
-    // dx = 3;
     document.getElementById("startGame").style.display = "none";
     document.getElementById("final-score").style.display = "none";
     intervalCounter = setInterval(timeIt, 1000);
@@ -165,16 +77,6 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
-// function handleOrientation(event) {
-//     var bar = document.getElementById("bar");
-//     var maxX = screen.width
-//     var boundry = maxX - 100;
-//     var rotation = event.gamma;
-//     var position = ((rotation / 90) * maxX) + (maxX / 2)
-//     if(position > 0 && (position) < boundry) {
-//         bar.style.left = position + "px";
-//     }
-// }
 
 function handleOrientation(event) {
     var rotation = event.gamma;
@@ -182,10 +84,6 @@ function handleOrientation(event) {
     if(position > 0 && (position) < canvas.width) {
         paddleX = position;
     }
-    // var relativeX = event.clientX - canvas.offsetLeft;
-    // if (relativeX > 0 && relativeX < canvas.width) {
-    //     paddleX = relativeX - paddleWidth / 2;
-    // }
 }
 
 function collisionDetection() {
@@ -199,10 +97,9 @@ function collisionDetection() {
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        document.getElementById("bar").style.display = "none";
                         document.getElementById("restartGame").style.display = "inline-block";
-                        document.getElementById("final-score").style.display = "inline";
                         document.getElementById("final-score").innerHTML = "You Won! Your final score is: " + score;
+                        document.getElementById("final-score").style.display = "inline";
                     }
                 }
             }
@@ -269,10 +166,9 @@ function draw() {
             dy = -dy;
         } else {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            document.getElementById("bar").style.display = "none";
             document.getElementById("restartGame").style.display = "inline-block";
-            document.getElementById("final-score").style.display = "inline";
             document.getElementById("final-score").innerHTML = "Game Over! Your final score is: " + score;
+            document.getElementById("final-score").style.display = "inline";
         }
     }
 

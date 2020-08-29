@@ -1,13 +1,3 @@
-/*#bar {*/
-/*    position: absolute;*/
-/*    bottom: 40px;*/
-/*    left: 50%;*/
-/*    width: 80px;*/
-/*    height: 10px;*/
-/*    background: red;*/
-/*    display: none;*/
-/*}*/
-
 #startGame {
     position: absolute;
     font-family: 'Open Sans', sans-serif;
@@ -35,19 +25,6 @@
     top: 30%;
     text-align: center;
 }
-
-/*#score {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    font-weight: 600;*/
-/*    color: black;*/
-/*    font-family: 'Open Sans', sans-serif;*/
-/*    bottom: 65%;*/
-/*    right: 40%;*/
-/*    font-size: 25px;*/
-/*    width: 200px;*/
-/*    height: 200px;*/
-/*}*/
 
 .wrapper {
     width: 100%;
