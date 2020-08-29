@@ -16,7 +16,7 @@ let brickWidth = 45;
 let brickHeight = 20;
 let brickPadding = 7;
 let brickOffsetTop = 30;
-let brickOffsetLeft = 15;
+let brickOffsetLeft = 20;
 let score = 0;
 let counter;
 let intervalCounter;
