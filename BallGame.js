@@ -199,14 +199,22 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
-                        alert("YOU WIN, CONGRATS!");
-                        document.location.reload();
                         clearInterval(interval); // Needed for Chrome to end game
+                        reset();
                     }
                 }
             }
         }
     }
+}
+
+function reset() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("bar").style.display = "none";
+    document.getElementById("startGame").style.display = "inline-block";
+    document.getElementById("final-score").style.display = "inline";
+    document.getElementById("startGame").innerHTML = "Let's go Again!";
+    document.getElementById("final-score").innerHTML = "Your final score is: " + score;
 }
 
 function drawBall() {
