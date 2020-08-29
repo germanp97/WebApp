@@ -10,27 +10,6 @@
 // let y;
 // let score;
 //
-// function startGame() {
-//     score = 0;
-//     y = 100;
-//     counter = 4;
-//     dy = 3;
-//     dx = 3
-//     console.log(document.getElementById("startGame").style);
-//     document.getElementById("startGame").style.display = "none";
-//     document.getElementById("final-score").style.display = "none";
-//     intervalCounter = setInterval(timeIt, 1000);
-// }
-//
-// function timeIt() {
-//     counter--;
-//     document.getElementById("counter").innerHTML = counter;
-//     document.getElementById("counter").style.display = "inline";
-//     if (counter === 0) {
-//         clearInterval(intervalCounter);
-//         start();
-//     }
-// }
 //
 // function start() {
 //     let randomNumber = Math.random()
@@ -124,11 +103,38 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var score = 0;
+var counter;
+var intervalCounter;
+var interval;
+
+
+function startGame() {
+    // score = 0;
+    // y = 100;
+    counter = 4;
+    // dy = 3;
+    // dx = 3;
+    console.log(document.getElementById("startGame").style);
+    document.getElementById("startGame").style.display = "none";
+    document.getElementById("final-score").style.display = "none";
+    intervalCounter = setInterval(timeIt, 1000);
+}
+
+function timeIt() {
+    counter--;
+    document.getElementById("counter").innerHTML = counter;
+    document.getElementById("counter").style.display = "inline";
+    if (counter === 0) {
+        clearInterval(intervalCounter);
+        interval = setInterval(draw, 10);
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     canvas = document.getElementById("myCanvas");
-    canvas.width = screen.width;
-    canvas.height = screen.height;
+    canvas.width = screen.width - 100;
+    canvas.height = screen.height * 0.75;
     ctx = canvas.getContext("2d");
     x = canvas.width / 2;
     y = canvas.height - 30;
@@ -241,6 +247,7 @@ function drawScore() {
 }
 
 function draw() {
+    document.getElementById("counter").style.display = "none";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBricks();
     drawBall();
@@ -272,6 +279,4 @@ function draw() {
     x += dx;
     y += dy;
 }
-
-var interval = setInterval(draw, 10);
 

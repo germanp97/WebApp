@@ -8,23 +8,23 @@
 /*    display: none;*/
 /*}*/
 
-/*#startGame {*/
-/*    position: absolute;*/
-/*    font-family: 'Open Sans', sans-serif;*/
-/*    font-weight: 600;*/
-/*    width: 150px;*/
-/*    length: 200px;*/
-/*    top: 45%;*/
-/*}*/
+#startGame {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    width: 150px;
+    length: 200px;
+    top: 45%;
+}
 
-/*#final-score {*/
-/*    position: absolute;*/
-/*    font-family: 'Open Sans', sans-serif;*/
-/*    font-weight: 600;*/
-/*    width: 300px;*/
-/*    top: 30%;*/
-/*    text-align: center;*/
-/*}*/
+#final-score {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    width: 300px;
+    top: 30%;
+    text-align: center;
+}
 
 /*#score {*/
 /*    display: none;*/
@@ -47,12 +47,12 @@
 /*    justify-content: center;*/
 /*}*/
 
-/*#counter {*/
-/*    position: absolute;*/
-/*    font-variant-numeric: tabular-nums;*/
-/*    font-size: 200px;*/
-/*    top: 15%;*/
-/*}*/
+#counter {
+    position: absolute;
+    font-variant-numeric: tabular-nums;
+    font-size: 200px;
+    top: 15%;
+}
 
 canvas {
     background: #eee;
