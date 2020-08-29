@@ -109,7 +109,6 @@ var interval;
 
 
 function startGame() {
-    // score = 0;
     // y = 100;
     counter = 4;
     // dy = 3;
@@ -179,8 +178,9 @@ function keyUpHandler(e) {
 //     }
 // }
 
-function mouseMoveHandler(event) {
-    var relativeX = event.clientX - canvas.offsetLeft;
+function handleOrientation(event) {
+    var rotation = event.gamma;
+    var relativeX = ((rotation / 90) * canvas.width) + (canvas.width / 2) - canvas.offsetLeft;
     if (relativeX > 0 && relativeX < canvas.width) {
         paddleX = relativeX - paddleWidth / 2;
     }
@@ -279,4 +279,6 @@ function draw() {
     x += dx;
     y += dy;
 }
+
+window.addEventListener("deviceorientation", handleOrientation, true);
 
