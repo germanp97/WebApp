@@ -95,11 +95,11 @@ var paddleHeight = 10;
 var paddleWidth = 75;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 5;
+var brickRowCount = 6;
 var brickColumnCount = 3;
-var brickWidth = 40;
+var brickWidth = 45;
 var brickHeight = 20;
-var brickPadding = 10;
+var brickPadding = 7;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var score = 0;
@@ -113,7 +113,6 @@ function startGame() {
     counter = 4;
     // dy = 3;
     // dx = 3;
-    console.log(document.getElementById("startGame").style);
     document.getElementById("startGame").style.display = "none";
     document.getElementById("final-score").style.display = "none";
     intervalCounter = setInterval(timeIt, 1000);
@@ -199,22 +198,13 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
+                        alert("YOU WIN, CONGRATS!");
                         clearInterval(interval); // Needed for Chrome to end game
-                        reset();
                     }
                 }
             }
         }
     }
-}
-
-function reset() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById("bar").style.display = "none";
-    document.getElementById("startGame").style.display = "inline-block";
-    document.getElementById("final-score").style.display = "inline";
-    document.getElementById("startGame").innerHTML = "Let's go Again!";
-    document.getElementById("final-score").innerHTML = "Your final score is: " + score;
 }
 
 function drawBall() {
@@ -275,9 +265,8 @@ function draw() {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         } else {
-            alert("GAME OVER");
-            document.location.reload();
             clearInterval(interval); // Needed for Chrome to end game
+            reset();
         }
     }
 
@@ -289,6 +278,15 @@ function draw() {
 
     x += dx;
     y += dy;
+}
+
+function reset() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("bar").style.display = "none";
+    document.getElementById("startGame").style.display = "inline-block";
+    document.getElementById("final-score").style.display = "inline";
+    document.getElementById("startGame").innerHTML = "Let's go Again!";
+    document.getElementById("final-score").innerHTML = "Game Over! \n Your final score is: " + score;
 }
 
 window.addEventListener("deviceorientation", handleOrientation, true);
