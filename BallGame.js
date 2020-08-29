@@ -150,7 +150,6 @@ for (var c = 0; c < brickColumnCount; c++) {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
 
 function keyDownHandler(e) {
     if (e.key === "Right" || e.key === "ArrowRight") {
@@ -180,10 +179,14 @@ function keyUpHandler(e) {
 
 function handleOrientation(event) {
     var rotation = event.gamma;
-    var relativeX = ((rotation / 90) * canvas.width) + (canvas.width / 2) - canvas.offsetLeft;
-    if (relativeX > 0 && relativeX < canvas.width) {
-        paddleX = relativeX - paddleWidth / 2;
+    var position = ((rotation / 90) * canvas.width) + (canvas.width / 2);
+    if(position > 0 && (position) < canvas.width) {
+        paddleX = position;
     }
+    // var relativeX = event.clientX - canvas.offsetLeft;
+    // if (relativeX > 0 && relativeX < canvas.width) {
+    //     paddleX = relativeX - paddleWidth / 2;
+    // }
 }
 
 function collisionDetection() {
