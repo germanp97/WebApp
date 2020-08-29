@@ -127,6 +127,8 @@ var score = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
     canvas = document.getElementById("myCanvas");
+    canvas.width = screen.width;
+    canvas.height = screen.height;
     ctx = canvas.getContext("2d");
     x = canvas.width / 2;
     y = canvas.height - 30;
