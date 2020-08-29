@@ -59,25 +59,6 @@ for (var c = 0; c < brickColumnCount; c++) {
     }
 }
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-
-function keyDownHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") {
-        rightPressed = true;
-    } else if (e.key === "Left" || e.key === "ArrowLeft") {
-        leftPressed = true;
-    }
-}
-
-function keyUpHandler(e) {
-    if (e.key === "Right" || e.key === "ArrowRight") {
-        rightPressed = false;
-    } else if (e.key === "Left" || e.key === "ArrowLeft") {
-        leftPressed = false;
-    }
-}
-
 function handleOrientation(event) {
     var rotation = event.gamma;
     var position = ((rotation / 90) * canvas.width) + (canvas.width / 2);
@@ -96,7 +77,6 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score === brickRowCount * brickColumnCount) {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
                         document.getElementById("restartGame").style.display = "inline-block";
                         document.getElementById("final-score").innerHTML = "You Won! Your final score is: " + score;
                         document.getElementById("final-score").style.display = "inline";
@@ -165,7 +145,6 @@ function draw() {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
         } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
             document.getElementById("restartGame").style.display = "inline-block";
             document.getElementById("final-score").innerHTML = "Game Over! Your final score is: " + score;
             document.getElementById("final-score").style.display = "inline";
