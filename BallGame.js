@@ -80,7 +80,7 @@ function collisionDetection() {
                         ctx.clearRect(0, 0, canvas.width, canvas.height);
                         clearInterval(interval);
                         document.getElementById("restartGame").style.display = "inline-block";
-                        document.getElementById("final-score").innerHTML = "You Won! Your final score is: " + score;
+                        document.getElementById("final-score").innerHTML = "You Won!";
                         document.getElementById("final-score").style.display = "inline";
                     }
                 }
@@ -155,8 +155,8 @@ function draw() {
         }
     }
 
-    if (rightPressed && paddleX < canvas.width - paddleWidth - 40) {
-        paddleX += 7;
+    if (rightPressed && paddleX < canvas.width - paddleWidth) {
+        paddleX += 30;
     } else if (leftPressed && paddleX > 0) {
         paddleX -= 7;
     }
