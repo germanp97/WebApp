@@ -124,7 +124,7 @@ function drawBricks() {
 }
 
 function drawScore() {
-    ctx.font = "16px Arial";
+    ctx.font = "16px Roboto";
     ctx.fillStyle = "#000000";
     ctx.fillText("Score: " + score, 8, 20);
 }

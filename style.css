@@ -1,6 +1,6 @@
 #startGame {
     position: absolute;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Mono Medium for Powerline', sans-serif;
     font-weight: 600;
     width: 150px;
     length: 200px;
@@ -10,7 +10,7 @@
 #restartGame {
     display: none;
     position: absolute;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Mono Medium for Powerline', sans-serif;
     font-weight: 600;
     width: 150px;
     length: 200px;
@@ -19,7 +19,7 @@
 
 #final-score {
     position: absolute;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Mono Medium for Powerline', sans-serif;
     font-weight: 600;
     width: 300px;
     top: 30%;
